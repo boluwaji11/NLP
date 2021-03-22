@@ -37,9 +37,9 @@ from textblob.sentiments import NaiveBayesAnalyzer
 
 # Language Detection
 # print(blob.detect_language())
-
-# spanish = blob.translate(to="es")
-# print(spanish)
+"""
+spanish = blob.translate(to="es")
+print(spanish)
 
 # Inflection
 from textblob import Word
@@ -63,3 +63,45 @@ print(word.correct())
 
 sentence = TextBlob("Ths sentence has missplled wrds.")
 print(sentence.correct())
+
+# Stemming and Lemmatization
+from textblob import Word
+
+word1 = Word("studies")
+word2 = Word("varieties")
+
+print(word1.lemmatize())
+print(word2.lemmatize())
+
+
+happy = Word("happy")
+print(happy.definitions)
+
+for synset in happy.synsets:
+    print(synset)
+    for lemma in synset.lemmas():
+        print(lemma)
+        print(lemma.name())
+
+lemmas = happy.synsets[0].lemmas()
+print(lemmas)
+
+for lemma in lemmas[0].antonyms():
+    print(lemma.name())
+
+"""
+import nltk
+
+# nltk.download("stopwords")
+
+from nltk.corpus import stopwords
+
+stops = stopwords.words("english")
+
+# print(stops)
+
+blob = TextBlob("Today is a beautiful day.")
+
+new_list = [word for word in blob.words if word not in stops]
+print(blob.words)
+print(new_list)
