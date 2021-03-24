@@ -1,3 +1,8 @@
+import os
+
+clear = lambda: os.system("cls")
+clear()
+
 remainder = lambda num: num % 2
 
 print(remainder(5))
@@ -35,6 +40,7 @@ print(list(result))
 
 result3 = map(lambda num: num + num, numbers)
 print(list(result3))
+
 
 # Two arguments
 numbers = (1, 2, 3, 4)
